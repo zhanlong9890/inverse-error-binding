@@ -7,8 +7,7 @@
 [![Paper](https://img.shields.io/badge/📄_Paper-Markdown-blue)](paper.md)
 [![Experiments](https://img.shields.io/badge/🧪_Experiments-Reproducible-green)](experiment_code.py)
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey)](https://creativecommons.org/licenses/by/4.0/)
-[![知乎文章1](https://img.shields.io/badge/知乎-IEB框架科普-0084FF)](zhihu_article.md)
-[![知乎文章2](https://img.shields.io/badge/知乎-三节点语义收敛-0084FF)](zhihu_article_2.md)
+[![CSDN](https://img.shields.io/badge/CSDN-中文科普-FC5531)](https://blog.csdn.net/2505_92893590/article/details/158362836)
 
 ---
 
