@@ -170,6 +170,7 @@ All experiments are **fully reproducible** with fixed random seeds.
 │   ├── zhihu_article.md               ← 知乎 #1: 为什么 1+?=2 比 1+1=? 更安全
 │   ├── zhihu_article_2.md             ← 知乎 #2: AI不缺知识，缺的是什么时候说什么话
 │   ├── zhihu_article_3.md             ← 知乎 #3: 共通性 vs 天地人 四路对打实验
+│   ├── zhihu_article_4.md             ← 知乎 #4: 断头任务与语义解压
 │   └── reddit_post.md                 ← Reddit post
 │
 └── latex/
@@ -196,6 +197,7 @@ All experiments are **fully reproducible** with fixed random seeds.
 - **知乎科普 #1**: [zhihu_article.md](articles/zhihu_article.md) — 为什么 1+?=2 比 1+1=? 更安全
 - **知乎科普 #2**: [zhihu_article_2.md](articles/zhihu_article_2.md) — AI不缺知识，缺的是什么时候说什么话
 - **知乎科普 #3**: [zhihu_article_3.md](articles/zhihu_article_3.md) — 共通性 vs 天地人：四路对打实验
+- **知乎科普 #4**: [zhihu_article_4.md](articles/zhihu_article_4.md) — 断头任务与语义解压
 - **Reddit**: [reddit_post.md](articles/reddit_post.md) — English version
 
 ---
