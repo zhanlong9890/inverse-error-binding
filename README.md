@@ -1,72 +1,120 @@
-# Inverse Error Binding (IEB) — AI Hallucination Suppression Framework
+# Inverse Error Binding (IEB)
 
-## 答案约束优于问题求解：逆向误差绑定框架
+### Why `1+?=2` is safer than `1+1=?` — A framework to eliminate AI hallucination
 
-[![Paper](https://img.shields.io/badge/Paper-Markdown-blue)](paper.md)
-[![arXiv](https://img.shields.io/badge/arXiv-2026-red)](https://arxiv.org/)
+### 为什么 `1+?=2` 比 `1+1=?` 更安全 — 一个让AI不再"说瞎话"的框架
+
+[![Paper](https://img.shields.io/badge/📄_Paper-Markdown-blue)](paper.md)
+[![Experiments](https://img.shields.io/badge/🧪_Experiments-Reproducible-green)](experiment_code.py)
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey)](https://creativecommons.org/licenses/by/4.0/)
+[![知乎文章1](https://img.shields.io/badge/知乎-IEB框架科普-0084FF)](zhihu_article.md)
+[![知乎文章2](https://img.shields.io/badge/知乎-三节点语义收敛-0084FF)](zhihu_article_2.md)
 
 ---
 
-### Core Idea / 核心思想
+## 🔥 One-Sentence Summary
 
-> **$1 + ? = 2$ is safer than $1 + 1 = ?$**
+> **Every AI safety method today tries to make `1+1=?` more accurate. We flip the equation: if you know the answer structure ("2"), the error is bounded. If you don't, the error can be infinite.**
 
-- **Forward mode** ($1+1=?$): Output space is unbounded → Error can be infinite
-- **Inverse mode** ($1+?=2$): Output is constrained by the answer → Error is bounded and verifiable
-
-Applied to AI: instead of making models understand questions better, **use answer structure to constrain output error** — eliminating hallucination through multi-source convergence.
+> **现在所有AI安全方法都在优化 `1+1=?`。我们反转等式：如果你知道答案结构（"2"），误差有上界；如果不知道，误差可以是无穷大。**
 
 ---
 
-### Key Results / 核心结果
+## 💡 What is this?
 
-| Scale | Big-Data Filtering Precision | Answer Convergence Precision |
-|-------|-----|-----|
-| 1K | 0.000 | **1.000** |
-| 10K | 0.000 | **1.000** |
-| 100K | 0.000 | **1.000** |
-| 1M | 0.000 | **1.000** |
+A **new theoretical framework** that explains:
+1. **Why** AI hallucinates — unbounded error space in forward mode (`1+1=?`)
+2. **How** to fix it — constrain output with answer structure (`1+?=2`)
+3. **Where** the "2" comes from — a universal 3-node convergence protocol (天时 · 地利 · 人和)
 
-100% precision at all scales. The advantage is **certainty**, not speed.
+This is **not** another prompt engineering trick. It's a **mathematical explanation** of why certain methods (Self-Consistency, multi-agent debate, etc.) work — and a framework that predicts which approaches will fail.
 
 ---
 
-### Repository Structure / 仓库结构
+## 📊 Key Results
+
+| Scale | Traditional Filtering | Answer Convergence (IEB) |
+|-------|:---:|:---:|
+| 1,000 | 0% | **100%** |
+| 10,000 | 0% | **100%** |
+| 100,000 | 0% | **100%** |
+| 1,000,000 | 0% | **100%** |
+
+**100% precision at all scales.** The difference isn't speed — it's certainty.
+
+---
+
+## 🧠 Core Insight
 
 ```
-IEB-paper/
-├── README.md           ← You are here
-├── paper.md            ← Full paper (Markdown, bilingual)
-├── experiment_code.py  ← Complete experimental validation (4 experiments)
-└── latex/
-    └── main.tex        ← LaTeX version for arXiv submission
+Forward mode (how AI works today):
+  Question(1) + AI(?) = ???     ← Error space: INFINITE
+
+Inverse mode (our framework):
+  Question(1) + ?(?) = Answer(2)  ← Error space: BOUNDED
+```
+
+**The key question becomes: where does "2" come from?**
+
+For math problems, "2" is given. For real-world semantic questions, we construct it:
+
+```
+User(1) + 天时(When/1/3) + 地利(Where/1/3) + 人和(Who/1/3) = Real "2"
+Then: 1 + ? = 2  ← AI now operates in a constrained space
 ```
 
 ---
 
-### Run Experiments / 运行实验
+## 🚀 Quick Start
 
 ```bash
 pip install numpy
 python experiment_code.py
 ```
 
-Outputs 4 experiments:
+4 experiments, fully reproducible:
 1. **Precision vs Scale** — 100% precision from 1K to 1M
-2. **Noise Elimination** — Matches theoretical $1/\sqrt{n}$ prediction
-3. **Forward vs Inverse Error** — Forward mode error 6497× larger
-4. **Convergence Speed** — 20 sources sufficient even at high noise (σ=0.5)
+2. **Noise Elimination** — Matches theoretical 1/√n prediction  
+3. **Forward vs Inverse Error** — Forward error 6497× larger
+4. **Convergence Speed** — 20 sources sufficient even at σ=0.5
 
 ---
 
-### Relation to Existing Work / 与现有工作的关系
+## 📁 Repository Structure
 
-This framework provides the **epistemological foundation** for why methods like Self-Consistency (Wang et al., ICLR 2023) work. Self-Consistency is a special case of Answer Convergence at the engineering level. IEB explains *why*: **it's not about voting — it's about error binding.**
+```
+├── README.md              ← You are here
+├── paper.md               ← Full paper (bilingual EN/CN)
+├── experiment_code.py     ← 4 reproducible experiments
+├── zhihu_article.md       ← 科普文章：IEB框架
+├── zhihu_article_2.md     ← 科普文章：三节点语义收敛协议
+└── latex/
+    └── main.tex           ← LaTeX version
+```
 
 ---
 
-### Citation / 引用
+## 🔗 Relation to Existing Work
+
+| Method | What it does | Relation to IEB |
+|--------|-------------|-----------------|
+| **Self-Consistency** (Wang et al., ICLR 2023) | Sample multiple times, majority vote | **Special case** — 1D voting. IEB explains *why* it works |
+| **LLM Debate** (Du et al., 2023) | Multiple agents debate | Uses convergence but lacks error bound theory |
+| **RAG** | Retrieve external knowledge | Still forward mode (`1+1=?`), no error bound |
+| **Chain-of-Thought** | Step-by-step reasoning | Optimizes the process, not the error structure |
+| **IEB (ours)** | Constrain error via answer structure | **Provides the mathematical foundation** for all above |
+
+---
+
+## 📖 Read More
+
+- **Academic paper**: [paper.md](paper.md) — Full formal treatment with proofs
+- **知乎科普 #1**: [zhihu_article.md](zhihu_article.md) — 为什么 1+?=2 比 1+1=? 更安全
+- **知乎科普 #2**: [zhihu_article_2.md](zhihu_article_2.md) — AI不缺知识，缺的是"什么时候说什么话"
+
+---
+
+## 📝 Citation
 
 ```bibtex
 @article{maxur2026ieb,
@@ -74,19 +122,24 @@ This framework provides the **epistemological foundation** for why methods like 
          An Inverse Error-Binding Framework for AI Hallucination Suppression},
   author={MAXUR},
   year={2026},
-  note={Independent research}
+  note={Independent research. GitHub: zhanlong9890/inverse-error-binding}
 }
 ```
 
 ---
 
-### Philosophy / 哲学延伸
+## 🌊 Philosophy
 
 > Science is not about finding the answer.  
-> Science is about figuring out the path to the answer, once you know where it is.
+> Science is about figuring out the path — once you know where the answer is.
 >
-> 科学不是关于找到答案。科学是关于知道答案在哪里之后，搞清楚通往答案的路。
+> 科学不是关于找到答案。是关于知道答案在哪里之后，搞清楚通往答案的路。
+
+> Knowing your boundary is not a limitation.  
+> It's finding your finite space in infinite chaos — and excelling within it.
+>
+> 知道边界，不是限制。是从无穷的混沌中，找到属于你的有限空间——然后在里面做到极致。
 
 ---
 
-**Author: MAXUR** | February 2026 | CC BY 4.0
+**Author: MAXUR** | February 2026 | Independent Research | CC BY 4.0
