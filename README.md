@@ -4,7 +4,7 @@
 ### 为什么 `1+?=2` 比 `1+1=?` 更安全 — 一个让AI不再"说瞎话"的框架
 
 [![Paper](https://img.shields.io/badge/📄_Paper-Markdown-blue)](paper.md)
-[![Experiments](https://img.shields.io/badge/🧪_Experiments-9_Scripts-green)](experiments/)
+[![Experiments](https://img.shields.io/badge/🧪_Experiments-7_Scripts-green)](experiments/)
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey)](https://creativecommons.org/licenses/by/4.0/)
 
 ---
@@ -138,9 +138,6 @@ python framework_ab_test.py
 
 # Academic validation (6 formal proofs with statistical tests)
 python academic_validation.py
-
-# Multi-scenario validation (6 domains)
-python multi_scenario_experiment.py
 ```
 
 All experiments are **fully reproducible** with fixed random seeds.
@@ -162,8 +159,6 @@ All experiments are **fully reproducible** with fixed random seeds.
 │   ├── semantic_compression_experiment.py ← v4: 语义压缩
 │   ├── framework_ab_test.py           ← A/B Test: AI vs IEB
 │   ├── academic_validation.py         ← 6 formal proofs
-│   ├── boundary_convergence_experiment.py ← Boundary + convergence
-│   ├── multi_scenario_experiment.py   ← 6-domain validation
 │   └── relationship_network_experiment.py ← v5: Social topology
 │
 ├── results/                           ← Experiment outputs (JSON)
@@ -172,8 +167,9 @@ All experiments are **fully reproducible** with fixed random seeds.
 │   └── relationship_network_results.json
 │
 ├── articles/                          ← Published articles
-│   ├── zhihu_article.md               ← 知乎: IEB框架科普
-│   ├── zhihu_article_2.md             ← 知乎: 三节点语义收敛
+│   ├── zhihu_article.md               ← 知乎 #1: 为什么 1+?=2 比 1+1=? 更安全
+│   ├── zhihu_article_2.md             ← 知乎 #2: AI不缺知识，缺的是什么时候说什么话
+│   ├── zhihu_article_3.md             ← 知乎 #3: 共通性 vs 天地人 四路对打实验
 │   └── reddit_post.md                 ← Reddit post
 │
 └── latex/
@@ -197,8 +193,9 @@ All experiments are **fully reproducible** with fixed random seeds.
 ## 📖 Read More
 
 - **Academic paper**: [paper.md](paper.md) — Full treatment with proofs
-- **知乎科普 #1**: [zhihu_article.md](articles/zhihu_article.md) — IEB框架
-- **知乎科普 #2**: [zhihu_article_2.md](articles/zhihu_article_2.md) — 三节点语义收敛
+- **知乎科普 #1**: [zhihu_article.md](articles/zhihu_article.md) — 为什么 1+?=2 比 1+1=? 更安全
+- **知乎科普 #2**: [zhihu_article_2.md](articles/zhihu_article_2.md) — AI不缺知识，缺的是什么时候说什么话
+- **知乎科普 #3**: [zhihu_article_3.md](articles/zhihu_article_3.md) — 共通性 vs 天地人：四路对打实验
 - **Reddit**: [reddit_post.md](articles/reddit_post.md) — English version
 
 ---
