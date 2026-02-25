@@ -1,0 +1,35 @@
+{
+  "experiment": "IEB v5: 关系网语义实验",
+  "thesis": "语义 = 文本 × 关系 × 历史 × 权力结构 × 场景",
+  "test_words": [
+    "算了",
+    "没事",
+    "随便"
+  ],
+  "relations_tested": [
+    "伴侣",
+    "上级",
+    "客户",
+    "好友",
+    "陌生人"
+  ],
+  "results": {
+    "a_mean": 0.4,
+    "b_mean": 1.2,
+    "c_mean": 3.0,
+    "c_vs_a": 7.5
+  },
+  "dimension_leap": {
+    "current_ai": 3,
+    "ieb_v4": 6,
+    "ieb_v5": 11
+  },
+  "key_insight": "语义不是语言问题, 是社会位置问题",
+  "core_formula": "语言只是接口, 关系才是协议",
+  "hard_problems": [
+    "关系真实性",
+    "权力映射",
+    "用户接受度"
+  ],
+  "social_dynamics": "关系→行为→数据→关系 (自转闭环)"
+}

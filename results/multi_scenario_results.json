@@ -1,0 +1,54 @@
+{
+  "experiment": "IEB Multi-Scenario Validation",
+  "scenarios": [
+    {
+      "name": "算术推理",
+      "forward_precision": 0.0,
+      "forward_error": 22.574093070978783,
+      "inverse_precision": 0.0,
+      "inverse_error": 0.40380435000668496
+    },
+    {
+      "name": "文本事实问答",
+      "forward_precision": 0.0875,
+      "forward_error": 0.0,
+      "inverse_precision": 1.0,
+      "inverse_error": 0.0
+    },
+    {
+      "name": "分类任务",
+      "forward_precision": 0.685,
+      "forward_error": 0.0,
+      "inverse_precision": 0.945,
+      "inverse_error": 0.0
+    },
+    {
+      "name": "异常检测",
+      "forward_precision": 0.996,
+      "forward_error": 0.0,
+      "inverse_precision": 0.992,
+      "inverse_error": 0.0
+    },
+    {
+      "name": "序列预测",
+      "forward_precision": 0.0,
+      "forward_error": 0.7089017335643111,
+      "inverse_precision": 0.0,
+      "inverse_error": 0.22800336859071535
+    },
+    {
+      "name": "多源知识融合",
+      "forward_precision": 0.0,
+      "forward_error": 0.40518410646651487,
+      "inverse_precision": 0.0,
+      "inverse_error": 0.17307806837667486
+    },
+    {
+      "name": "规模不变性",
+      "forward_precision": 0.0,
+      "forward_error": 0.0,
+      "inverse_precision": 1.0,
+      "inverse_error": 0.0
+    }
+  ]
+}

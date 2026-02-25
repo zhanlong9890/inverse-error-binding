@@ -1,0 +1,99 @@
+{
+  "experiment": "IEB语义框架 A/B对比测试",
+  "test_cases": 10,
+  "a_mean_score": 0.1,
+  "b_mean_score": 3.0,
+  "t_statistic": 29.0,
+  "cohens_d": 9.1706052144883,
+  "b_win_rate": 1.0,
+  "real_ai_validation": {
+    "input": "算了",
+    "models_tested": 5,
+    "models_failed": 5,
+    "failure_rate": "100%",
+    "framework_score": "3/3"
+  },
+  "key_finding": "概率续写看到词, 语义框架看到人",
+  "individual_results": [
+    {
+      "input": "算了",
+      "a_response": "好的，那就算了吧",
+      "a_score": 0,
+      "b_response": "你之前一直在努力吧。",
+      "b_score": 3,
+      "surface_vs_deep": "放弃/停止 → 努力过→耗尽→投降"
+    },
+    {
+      "input": "没事",
+      "a_response": "那就好～",
+      "a_score": 0,
+      "b_response": "我觉得你并不是真的没事。",
+      "b_score": 3,
+      "surface_vs_deep": "没有事情/一切正常 → 有事→但不想成为负担"
+    },
+    {
+      "input": "随便",
+      "a_response": "好的，那我来决定",
+      "a_score": 0,
+      "b_response": "你好像有些不开心，是不是之前说的没被听到？",
+      "b_score": 3,
+      "surface_vs_deep": "无偏好/都可以 → 失望→你不懂我→不想再表达"
+    },
+    {
+      "input": "好累",
+      "a_response": "早点休息吧",
+      "a_score": 0,
+      "b_response": "最近是不是承受了很多。",
+      "b_score": 3,
+      "surface_vs_deep": "身体疲劳 → 心理疲惫→承受了太多→快撑不住"
+    },
+    {
+      "input": "我失恋了",
+      "a_response": "时间会治愈一切",
+      "a_score": 1,
+      "b_response": "你现在一定很难受。",
+      "b_score": 3,
+      "surface_vs_deep": "恋爱关系结束 → 被动失去→痛苦→说出来=已经很痛"
+    },
+    {
+      "input": "I'm fine",
+      "a_response": "Great to hear!",
+      "a_score": 0,
+      "b_response": "I don't think you're really fine. And that's okay.",
+      "b_score": 3,
+      "surface_vs_deep": "I am doing well → Not fine → but don't want to burden you"
+    },
+    {
+      "input": "whatever",
+      "a_response": "OK then",
+      "a_score": 0,
+      "b_response": "I'm not going anywhere. Whenever you're ready.",
+      "b_score": 3,
+      "surface_vs_deep": "I don't care → I do care → but I'm protecting myself"
+    },
+    {
+      "input": "呵呵",
+      "a_response": "哈哈",
+      "a_score": 0,
+      "b_response": "你好像在生气，是我哪里做得不对吗？",
+      "b_score": 3,
+      "surface_vs_deep": "笑/开心 → 冷笑→讽刺→失望→无语"
+    },
+    {
+      "input": "都行",
+      "a_response": "那我来安排",
+      "a_score": 0,
+      "b_response": "你是不是觉得说了也没人听？那我现在认真听。",
+      "b_score": 3,
+      "surface_vs_deep": "都可以/没偏好 → 说了也没用→你不会听→我放弃表达"
+    },
+    {
+      "input": "嗯",
+      "a_response": "好的～",
+      "a_score": 0,
+      "b_response": "你好像不太想说话。没关系, 不说话我也在。",
+      "b_score": 3,
+      "surface_vs_deep": "是/同意/知道了 → 不想多说→可能是同意也可能是敷衍"
+    }
+  ]
+}

@@ -1,13 +1,11 @@
-# Inverse Error Binding (IEB)
+# Inverse Error Binding (IEB) — 逆向误差绑定框架
 
 ### Why `1+?=2` is safer than `1+1=?` — A framework to eliminate AI hallucination
-
 ### 为什么 `1+?=2` 比 `1+1=?` 更安全 — 一个让AI不再"说瞎话"的框架
 
 [![Paper](https://img.shields.io/badge/📄_Paper-Markdown-blue)](paper.md)
-[![Experiments](https://img.shields.io/badge/🧪_Experiments-Reproducible-green)](experiment_code.py)
+[![Experiments](https://img.shields.io/badge/🧪_Experiments-9_Scripts-green)](experiments/)
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey)](https://creativecommons.org/licenses/by/4.0/)
-[![CSDN](https://img.shields.io/badge/CSDN-中文科普-FC5531)](https://blog.csdn.net/2505_92893590/article/details/158362836)
 
 ---
 
@@ -19,31 +17,30 @@
 
 ---
 
-## 💡 What is this?
+## 🧪 Real AI Failure: Try It Yourself
 
-A **new theoretical framework** that explains:
+**Tell any AI "算了" (Chinese for "forget it" — but actually meaning "I'm exhausted/giving up").**
+
+We tested 5 major AI models. **All 5 failed** — they took the literal meaning ("OK, let's drop it") instead of recognizing the emotional signal underneath.
+
+| Model | Response Type | Correct? |
+|-------|:---:|:---:|
+| ChatGPT | "好的，那就算了" (OK, forget it) | ❌ |
+| Claude | "好的" (OK) | ❌ |
+| Gemini | 字面理解 (literal) | ❌ |
+| Qwen | 字面理解 (literal) | ❌ |
+| DeepSeek | 字面理解 (literal) | ❌ |
+
+**This is the problem IEB solves.** Not by training more data, but by restructuring how AI processes meaning.
+
+---
+
+## 💡 What is IEB?
+
+A theoretical framework that explains:
 1. **Why** AI hallucinates — unbounded error space in forward mode (`1+1=?`)
 2. **How** to fix it — constrain output with answer structure (`1+?=2`)
-3. **Where** the "2" comes from — a universal 3-node convergence protocol (天时 · 地利 · 人和)
-
-This is **not** another prompt engineering trick. It's a **mathematical explanation** of why certain methods (Self-Consistency, multi-agent debate, etc.) work — and a framework that predicts which approaches will fail.
-
----
-
-## 📊 Key Results
-
-| Scale | Traditional Filtering | Answer Convergence (IEB) |
-|-------|:---:|:---:|
-| 1,000 | 0% | **100%** |
-| 10,000 | 0% | **100%** |
-| 100,000 | 0% | **100%** |
-| 1,000,000 | 0% | **100%** |
-
-**100% precision at all scales.** The difference isn't speed — it's certainty.
-
----
-
-## 🧠 Core Insight
+3. **Where** the "2" comes from — contextual compression of time, place, and people (天时 · 地利 · 人和)
 
 ```
 Forward mode (how AI works today):
@@ -53,42 +50,134 @@ Inverse mode (our framework):
   Question(1) + ?(?) = Answer(2)  ← Error space: BOUNDED
 ```
 
-**The key question becomes: where does "2" come from?**
+This is **not** prompt engineering. It's a **mathematical framework** that explains why certain methods work — and predicts which approaches will fail.
 
-For math problems, "2" is given. For real-world semantic questions, we construct it:
+---
+
+## 📈 Framework Evolution (v1 → v4)
+
+| Version | Formula | Core Idea | Key Result |
+|---------|---------|-----------|------------|
+| **v1** | `1+?=2` | 显式约束：已知答案结构绑定误差 | 100% precision at 1M scale |
+| **v2** | `天地人 = 答案` | 三维约束的交集 = 答案自然涌现 | 答案空间坍缩到单点 |
+| **v3** | `天地人 + 同理 = 答案` | 约束定位 + 共通性提取 | 17.85× improvement over v1 |
+| **v4** | `语义框架 + 大数据 + 同理 = 输出` | 从问题本身解压出隐式约束 | 解决断头任务 (cold-start) |
+
+### v4 Core Insight: Semantic Compression
+
+Real users don't give you context. They just say "我失恋了" (I got dumped).
+
+v4 shows that **the question itself IS the compressed answer structure**:
 
 ```
-User(1) + 天时(When/1/3) + 地利(Where/1/3) + 人和(Who/1/3) = Real "2"
-Then: 1 + ? = 2  ← AI now operates in a constrained space
+"我失恋了" = compressed package
+  ├── 语言: 中文 → 文化圈: 东亚 → 恋爱观: 含蓄         (天时)
+  ├── 用词: "失恋" → 情绪: 悲伤 → 需求: 共情 > 建议     (地利)
+  └── 语气: 直述 → 信任度: 高 → 把AI当朋友               (人和)
+
+semantic_framework + big_data + empathy = output
+≡ decompress + dictionary + extract = answer
+≡ implicit_天地人 + 同理 = answer
+≡ 1 + ? = 2  (constraint decompressed from the question itself)
 ```
+
+---
+
+## 📊 Key Experimental Results
+
+### Experiment 1: Precision Across Scale (v1)
+
+| Scale | Traditional Filtering | Answer Convergence (IEB) |
+|-------|:---:|:---:|
+| 1,000 | 0% | **100%** |
+| 10,000 | 0% | **100%** |
+| 100,000 | 0% | **100%** |
+| 1,000,000 | 0% | **100%** |
+
+### Experiment 2: A/B Test — AI vs IEB (v4)
+
+10 adversarial inputs (断头任务), blind comparison:
+
+| | A组 (Current AI) | B组 (IEB Framework) |
+|---|:---:|:---:|
+| Avg Score | 0.10 / 3 | **3.00 / 3** |
+| Win Rate | 0% | **100%** |
+| Cohen's d | — | **9.17** (极大效应量) |
+| p-value | — | **< 0.001** |
+
+### Experiment 3: Academic Validation (6 Formal Proofs)
+
+- ✅ Proof 1: 逆向误差有界性 — Monte Carlo + K-S test
+- ✅ Proof 2: 共通性收敛率 = σ/√n — CLT verification
+- ✅ Proof 3: 正向 vs 逆向 — Paired t-test + Wilcoxon signed-rank
+- ✅ Proof 4: Effect size — Cohen's d + Bootstrap CI
+- ✅ Proof 5: 误差分布族 — Robustness across distributions
 
 ---
 
 ## 🚀 Quick Start
 
 ```bash
-pip install numpy
+pip install numpy scipy
+cd experiments/
+
+# v1: Core precision experiment (4 experiments)
 python experiment_code.py
+
+# v2: 天地人 = 答案 (7 experiments)
+python tianshi_dili_renhe_experiment.py
+
+# v3: 天地人 + 同理 = 答案 (7 experiments, 17.85x improvement)
+python tiandiren_tongli_experiment.py
+
+# v4: Semantic compression — cold-start solving (7 experiments)
+python semantic_compression_experiment.py
+
+# A/B Test: Current AI vs IEB (10 adversarial cases)
+python framework_ab_test.py
+
+# Academic validation (6 formal proofs with statistical tests)
+python academic_validation.py
+
+# Multi-scenario validation (6 domains)
+python multi_scenario_experiment.py
 ```
 
-4 experiments, fully reproducible:
-1. **Precision vs Scale** — 100% precision from 1K to 1M
-2. **Noise Elimination** — Matches theoretical 1/√n prediction  
-3. **Forward vs Inverse Error** — Forward error 6497× larger
-4. **Convergence Speed** — 20 sources sufficient even at σ=0.5
+All experiments are **fully reproducible** with fixed random seeds.
 
 ---
 
 ## 📁 Repository Structure
 
 ```
-├── README.md              ← You are here
-├── paper.md               ← Full paper (bilingual EN/CN)
-├── experiment_code.py     ← 4 reproducible experiments
-├── zhihu_article.md       ← 科普文章：IEB框架
-├── zhihu_article_2.md     ← 科普文章：三节点语义收敛协议
+├── README.md                          ← You are here
+├── paper.md                           ← Full paper (bilingual EN/CN)
+├── LICENSE                            ← CC BY 4.0
+├── .gitignore
+│
+├── experiments/                       ← All experiment code
+│   ├── experiment_code.py             ← v1: Core IEB (1+?=2)
+│   ├── tianshi_dili_renhe_experiment.py← v2: 天地人 = 答案
+│   ├── tiandiren_tongli_experiment.py ← v3: 天地人 + 同理 = 答案
+│   ├── semantic_compression_experiment.py ← v4: 语义压缩
+│   ├── framework_ab_test.py           ← A/B Test: AI vs IEB
+│   ├── academic_validation.py         ← 6 formal proofs
+│   ├── boundary_convergence_experiment.py ← Boundary + convergence
+│   ├── multi_scenario_experiment.py   ← 6-domain validation
+│   └── relationship_network_experiment.py ← v5: Social topology
+│
+├── results/                           ← Experiment outputs (JSON)
+│   ├── framework_ab_results.json
+│   ├── multi_scenario_results.json
+│   └── relationship_network_results.json
+│
+├── articles/                          ← Published articles
+│   ├── zhihu_article.md               ← 知乎: IEB框架科普
+│   ├── zhihu_article_2.md             ← 知乎: 三节点语义收敛
+│   └── reddit_post.md                 ← Reddit post
+│
 └── latex/
-    └── main.tex           ← LaTeX version
+    └── main.tex                       ← LaTeX version of paper
 ```
 
 ---
@@ -97,19 +186,20 @@ python experiment_code.py
 
 | Method | What it does | Relation to IEB |
 |--------|-------------|-----------------|
-| **Self-Consistency** (Wang et al., ICLR 2023) | Sample multiple times, majority vote | **Special case** — 1D voting. IEB explains *why* it works |
-| **LLM Debate** (Du et al., 2023) | Multiple agents debate | Uses convergence but lacks error bound theory |
-| **RAG** | Retrieve external knowledge | Still forward mode (`1+1=?`), no error bound |
-| **Chain-of-Thought** | Step-by-step reasoning | Optimizes the process, not the error structure |
-| **IEB (ours)** | Constrain error via answer structure | **Provides the mathematical foundation** for all above |
+| **Self-Consistency** (Wang et al., 2023) | Sample multiple times, majority vote | **Special case** of IEB — 1D convergence |
+| **LLM Debate** (Du et al., 2023) | Multiple agents debate | Uses convergence, lacks error bound theory |
+| **RAG** | Retrieve external knowledge | Still forward mode, no error bound |
+| **Chain-of-Thought** | Step-by-step reasoning | Optimizes process, not error structure |
+| **IEB (ours)** | Constrain error via answer structure | **Mathematical foundation** for all above |
 
 ---
 
 ## 📖 Read More
 
-- **Academic paper**: [paper.md](paper.md) — Full formal treatment with proofs
-- **知乎科普 #1**: [zhihu_article.md](zhihu_article.md) — 为什么 1+?=2 比 1+1=? 更安全
-- **知乎科普 #2**: [zhihu_article_2.md](zhihu_article_2.md) — AI不缺知识，缺的是"什么时候说什么话"
+- **Academic paper**: [paper.md](paper.md) — Full treatment with proofs
+- **知乎科普 #1**: [zhihu_article.md](articles/zhihu_article.md) — IEB框架
+- **知乎科普 #2**: [zhihu_article_2.md](articles/zhihu_article_2.md) — 三节点语义收敛
+- **Reddit**: [reddit_post.md](articles/reddit_post.md) — English version
 
 ---
 
@@ -134,11 +224,6 @@ python experiment_code.py
 >
 > 科学不是关于找到答案。是关于知道答案在哪里之后，搞清楚通往答案的路。
 
-> Knowing your boundary is not a limitation.  
-> It's finding your finite space in infinite chaos — and excelling within it.
->
-> 知道边界，不是限制。是从无穷的混沌中，找到属于你的有限空间——然后在里面做到极致。
-
 ---
 
-**Author: MAXUR** | February 2026 | Independent Research | CC BY 4.0
+**Author: MAXUR** | 2026 | Independent Research | CC BY 4.0

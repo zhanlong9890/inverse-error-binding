@@ -1,0 +1,27 @@
+# 认证文件（敏感信息）
+.zhihu_auth/
+
+# 发布脚本（非研究内容）
+publish_*.py
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 临时文件
+*.tmp
+*.log
